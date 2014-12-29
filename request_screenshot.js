@@ -37,8 +37,8 @@ function mailPhoto(file) {
 
 client.connect(8888, '127.0.0.1', function() {
   client.write('drawCams;screenshot;hideCams;');
+  file = process.argv[3] || '/opt/virsix/of/apps/myApps/blobTracker/bin/data/screenshot.jpg';
+  mailPhoto(file);
   client.end();
 });
 
-file = process.argv[3] || '/opt/virsix/of/apps/myApps/blobTracker/bin/data/screenshot.jpg';
-mailPhoto(file);
