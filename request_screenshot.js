@@ -15,7 +15,7 @@ var client = new net.Socket();
 function mailPhoto(file) {
   var email = new sendgrid.Email();
   if(!process.argv[2]) {
-    recipient = sendgrid.default_recipient;
+    recipient = sendgrid_from;
   } else {
     recipient = process.argv[2];
   }
