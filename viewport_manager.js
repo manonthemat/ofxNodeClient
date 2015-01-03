@@ -34,8 +34,13 @@ client.connect(8888, '127.0.0.1', function(err, connection) {
       break;
     case 'setArea':
     case 'setCt':
+      console.log('setting properties for auto-config');
       if(!process.argv[3]) printUsage();
       client.end(process.argv[2]+','+process.argv[3]+';');
+      break;
+    case 'shutdown':
+      console.log('shutting down input system');
+      client.end('shutdown;');
       break;
     default:
       printUsage();
