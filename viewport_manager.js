@@ -33,6 +33,7 @@ client.connect(8888, '127.0.0.1', function(err, connection) {
       }
       break;
     case 'setArea':
+    case 'setCt':
       if(!process.argv[3]) printUsage();
       client.end(process.argv[2]+','+process.argv[3]+';');
       break;
@@ -61,6 +62,7 @@ function printUsage() {
   console.log("\tsetBL [X] [Y]");
   console.log("\tsetBR [X] [Y]");
   console.log("\tsetArea [n]");
+  console.log("\tsetCt [n]");
   process.exit(1); // exit with error (return value 1)
 }
 
