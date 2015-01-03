@@ -21,6 +21,17 @@ client.connect(8888, '127.0.0.1', function(err, connection) {
       console.log('showing cams');
       client.end('drawCams;');
       break;
+    case 'setTL':
+    case 'setTR':
+    case 'setBL':
+    case 'setBR':
+      if(!(process.argv[3] && process.argv[4])) {
+        printUsage();
+      } else {
+        console.log('setting single point');
+        client.end(process.argv[2]+','+process.argv[3]+','+process.argv[4]+';');
+      }
+      break;
     default:
       printUsage();
   }
@@ -41,6 +52,10 @@ function printUsage() {
   console.log("\tunconfigure");
   console.log("\thideCams");
   console.log("\tdrawCams");
+  console.log("\tsetTL [X] [Y]");
+  console.log("\tsetTR [X] [Y]");
+  console.log("\tsetBL [X] [Y]");
+  console.log("\tsetBR [X] [Y]");
   process.exit(1); // exit with error (return value 1)
 }
 
