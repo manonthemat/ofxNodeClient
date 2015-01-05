@@ -17,6 +17,10 @@ client.connect(8888, '127.0.0.1', function(err, connection) {
       console.log('saving config');
       client.end('saveConfig;');
       break;
+    case 'deleteConfig':
+      console.log('deleting config file');
+      client.end('deleteConfig;');
+      break;
     case 'hideCams':
       console.log('hiding cams');
       client.end('hideCams;');
@@ -65,6 +69,7 @@ function printUsage() {
   console.log("\tgetPoints");
   console.log("\tunconfigure");
   console.log("\tsaveConfig");
+  console.log("\tdeleteConfig");
   console.log("\thideCams");
   console.log("\tdrawCams");
   console.log("\tsetTL [X] [Y]");
