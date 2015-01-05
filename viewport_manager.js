@@ -13,6 +13,10 @@ client.connect(8888, '127.0.0.1', function(err, connection) {
       console.log('set configured to false -> run auto-config');
       client.end('unconfigure;');
       break;
+    case 'saveConfig':
+      console.log('saving config');
+      client.end('saveConfig;');
+      break;
     case 'hideCams':
       console.log('hiding cams');
       client.end('hideCams;');
@@ -60,6 +64,7 @@ function printUsage() {
   console.log("The following commands are available:\n");
   console.log("\tgetPoints");
   console.log("\tunconfigure");
+  console.log("\tsaveConfig");
   console.log("\thideCams");
   console.log("\tdrawCams");
   console.log("\tsetTL [X] [Y]");
